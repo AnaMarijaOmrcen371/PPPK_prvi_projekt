@@ -1,0 +1,20 @@
+﻿version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: medical-postgres
+
+    environment:
+      POSTGRES_USER: medicaluser
+      POSTGRES_PASSWORD: medicalpass
+      POSTGRES_DB: medicaldb
+
+    ports:
+      - "5555:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
